@@ -2,24 +2,38 @@ class EmployeePayrollData {
   id;
   name;
   salary;
+  gender;
+  startDate;
 
-  constructor(id, name, salary) {
-    this.id = id;
-    this.name = name;
-    this.salary = salary;
-  }
-
-  get name() {
-    return this._name;
-  }
-  set name(name) {
-    this._name = name;
+  constructor(...params) {
+    this.id = params[0];
+    this.name = params[1];
+    this.salary = params[2];
+    this.gender = params[3];
+    this.startDate = params[4];
   }
 
   toString() {
-    return 'id=' + this.id + ', name=' + this.name + ', salary=' + this.salary;
+    return (
+      'id=' +
+      this.id +
+      ', name=' +
+      this.name +
+      ', salary=' +
+      this.salary +
+      ', gender=' +
+      this.gender +
+      ', start date:' +
+      this.startDate
+    );
   }
 }
 
-let employeePayrollData = new EmployeePayrollData(1, 'shubham', 20000);
+let employeePayrollData = new EmployeePayrollData(
+  1,
+  'shubham',
+  20000,
+  'M',
+  new Date().toJSON().slice(0, 10)
+);
 console.log(employeePayrollData.toString());
