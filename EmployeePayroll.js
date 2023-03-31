@@ -22,6 +22,25 @@ class EmployeePayrollData {
     } else throw 'name is incorrect';
   }
 
+  getId() {
+    return this._id;
+  }
+  setId(id) {
+    let idRegex = RegExp('^[^0]');
+    if (idRegex.test(id)) {
+      this.id = id;
+    } else throw 'id should not start with 0 or negative number';
+  }
+  getGender() {
+    return this._gender;
+  }
+  setGender(gender) {
+    let genderRegex = RegExp('[M|F]');
+    if (genderRegex.test(gender)) {
+      this.gender = gender;
+    } else throw 'gender should be M or F';
+  }
+
   toString() {
     return (
       'id=' +
@@ -48,6 +67,8 @@ let employeePayrollData = new EmployeePayrollData(
 console.log(employeePayrollData.toString());
 try {
   employeePayrollData.setName('Kundan');
+  employeePayrollData.setId(2);
+  employeePayrollData.setGender('M');
 } catch (error) {
   console.log(error);
 }
