@@ -26,7 +26,7 @@ class EmployeePayrollData {
     return this._id;
   }
   setId(id) {
-    let idRegex = RegExp('^[^0]');
+    let idRegex = RegExp('^[1-9][0-9]*');
     if (idRegex.test(id)) {
       this.id = id;
     } else throw 'id should not start with 0 or negative number';
@@ -35,7 +35,7 @@ class EmployeePayrollData {
     return this._gender;
   }
   setGender(gender) {
-    let genderRegex = RegExp('[M|F]');
+    let genderRegex = RegExp('^[M|F]$');
     if (genderRegex.test(gender)) {
       this.gender = gender;
     } else throw 'gender should be M or F';
@@ -69,7 +69,7 @@ try {
   employeePayrollData.setName('Kundan');
   employeePayrollData.setId(2);
   employeePayrollData.setGender('M');
+  console.log(employeePayrollData.toString());
 } catch (error) {
   console.log(error);
 }
-console.log(employeePayrollData.toString());
